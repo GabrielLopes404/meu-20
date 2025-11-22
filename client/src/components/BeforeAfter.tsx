@@ -2,15 +2,14 @@ import { useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { createWhatsAppLink } from "@/lib/whatsapp";
-
-const beforeImage = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='450'%3E%3Crect fill='%23333' width='800' height='450'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='Arial' font-size='24' fill='%23666'%3EAntes%3C/text%3E%3C/svg%3E";
-const afterImage = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='450'%3E%3Crect fill='%23EE00FF' width='800' height='450'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='Arial' font-size='24' fill='white'%3EDepois%3C/text%3E%3C/svg%3E";
+import beforeLogo from "@assets/before-logo.png";
+import afterLogo from "@assets/after-logo.png";
 
 const showcaseItem = {
   title: "Transformação de Logotipo - Creche Pequenos Sonhos",
   client: "Creche Pequenos Sonhos",
-  beforeImageUrl: beforeImage,
-  afterImageUrl: afterImage
+  beforeImageUrl: beforeLogo,
+  afterImageUrl: afterLogo
 };
 
 export function BeforeAfterSection() {
