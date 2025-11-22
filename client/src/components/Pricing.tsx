@@ -187,11 +187,12 @@ function PricingCard({ tier, index, category }: { tier: PricingTier; index: numb
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
-      className={`relative rounded-3xl p-8 mt-6 ${
+      className={`relative rounded-3xl p-8 mt-6 flex flex-col w-full ${
         tier.popular
           ? `bg-gradient-to-br ${colors.gradient} to-transparent border-2 ${colors.border} ${colors.shadow}`
           : 'bg-gradient-to-br from-white/5 to-transparent border border-white/10'
       } backdrop-blur-sm ${colors.hoverBorder} transition-all duration-300 group`}
+      style={{ touchAction: 'pan-x pinch-zoom' }}
     >
       {tier.popular && (
         <div className="absolute -top-4 left-1/2 -translate-x-1/2 z-10">
@@ -218,7 +219,7 @@ function PricingCard({ tier, index, category }: { tier: PricingTier; index: numb
         <div className="text-4xl font-black text-primary">{tier.price}</div>
       </div>
 
-      <ul className="space-y-3 mb-8">
+      <ul className="space-y-3 mb-8 flex-grow">
         {tier.features.map((feature, i) => (
           <li key={i} className="flex items-start gap-3">
             <Check className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
@@ -231,7 +232,7 @@ function PricingCard({ tier, index, category }: { tier: PricingTier; index: numb
         href={createWhatsAppLink(`Olá! Gostaria de saber mais sobre: ${tier.name}`)}
         target="_blank"
         rel="noopener noreferrer"
-        className={`block w-full py-3 px-6 rounded-xl font-semibold text-center transition-all duration-300 ${
+        className={`block w-full py-3 px-6 rounded-xl font-semibold text-center transition-all duration-300 flex-shrink-0 ${
           tier.popular
             ? `bg-gradient-to-r ${colors.buttonGradient} text-white shadow-lg ${colors.buttonHover}`
             : 'bg-white/10 text-white border border-white/20 hover:bg-white/20'
@@ -338,9 +339,9 @@ export default function Pricing() {
               {/* Mobile Scroll */}
               <div className="md:hidden -mx-4">
                 <DotIndicator className="px-4" itemCount={designTiers.length}>
-                  <div className="flex gap-6">
+                  <div className="flex gap-6 items-stretch">
                     {designTiers.map((tier, index) => (
-                      <div key={tier.name} className="min-w-[85vw] snap-center">
+                      <div key={tier.name} className="min-w-[85vw] snap-center flex">
                         <PricingCard tier={tier} index={index} category="designer" />
                       </div>
                     ))}
@@ -361,9 +362,9 @@ export default function Pricing() {
               {/* Mobile Scroll */}
               <div className="md:hidden -mx-4">
                 <DotIndicator className="px-4" itemCount={trafficTiers.length}>
-                  <div className="flex gap-6">
+                  <div className="flex gap-6 items-stretch">
                     {trafficTiers.map((tier, index) => (
-                      <div key={tier.name} className="min-w-[85vw] snap-center">
+                      <div key={tier.name} className="min-w-[85vw] snap-center flex">
                         <PricingCard tier={tier} index={index} category="gestao" />
                       </div>
                     ))}
@@ -384,9 +385,9 @@ export default function Pricing() {
               {/* Mobile Scroll */}
               <div className="md:hidden -mx-4">
                 <DotIndicator className="px-4" itemCount={webTiers.length}>
-                  <div className="flex gap-6">
+                  <div className="flex gap-6 items-stretch">
                     {webTiers.map((tier, index) => (
-                      <div key={tier.name} className="min-w-[85vw] snap-center">
+                      <div key={tier.name} className="min-w-[85vw] snap-center flex">
                         <PricingCard tier={tier} index={index} category="sites" />
                       </div>
                     ))}

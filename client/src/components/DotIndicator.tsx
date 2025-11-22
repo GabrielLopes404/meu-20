@@ -35,7 +35,7 @@ export function DotIndicator({ containerRef, children, className = "", itemCount
 
   return (
     <div className={`relative ${className}`}>
-      <div ref={ref} className="overflow-x-auto scrollbar-hide scroll-smooth snap-x snap-mandatory">
+      <div ref={ref} className="overflow-x-auto overflow-y-visible scrollbar-hide scroll-smooth snap-x snap-mandatory" style={{ touchAction: 'pan-x' }}>
         {children}
       </div>
       

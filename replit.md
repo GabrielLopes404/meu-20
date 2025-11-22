@@ -189,6 +189,10 @@ The application is architected to seamlessly transition from in-memory to databa
 - Converted pricing card buttons from motion.a to regular <a> tags to prevent scroll interference on mobile
 - Cards no longer intercept touch events during vertical scrolling
 - Motion Design feature confirmed present in DesignGraphic section with proper visibility
+- **Loading Spinner**: Simplified to single circle spinner (removed dual-circle background effect from both App.tsx PageLoader and Home.tsx SectionLoader)
+- **Design Graphic Cards**: Separated mobile (horizontal scroll with DotIndicator) and desktop (static 2-column grid) layouts
+- **Pricing Cards**: Fixed internal scroll issue by using flexbox layout (flex-col, h-full) with flex-grow on features list
+- **Before/After Section**: Updated with real client images - "Pequenos Sonhos" logo transformation (before: simple logo, after: complete brand identity)
 
 **Performance Optimizations (November 22, 2025):**
 - Centralized WhatsApp link utility function in client/src/lib/whatsapp.ts
