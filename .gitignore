@@ -15,3 +15,12 @@ coverage
 *.tsbuildinfo
 .vite-inspect
 .replit
+
+# Temporary files
+/tmp/
+*.tmp
+*.temp
+
+# Screenshot and temporary images
+attached_assets/image_*.png
+attached_assets/Screenshot*.png
