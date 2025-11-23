@@ -1,0 +1,17 @@
+# Configuração para deploy do BACKEND no Render
+services:
+  - type: web
+    name: lopes-designer-backend
+    env: node
+    region: oregon
+    plan: free
+    buildCommand: npm install && npm run build
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 10000
+    # Adicione suas variáveis de ambiente personalizadas aqui
+    # - key: DATABASE_URL
+    #   sync: false

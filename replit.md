@@ -116,33 +116,58 @@ The application is architected to seamlessly transition from in-memory to databa
 - Custom design guidelines in `design_guidelines.md` specifying typography scale, spacing system, color scheme, and layout patterns
 - Branding configuration in `attached_assets/branding-1763728016779.json`
 
-## Replit Environment Setup (November 22, 2025)
+## Replit Environment Setup (November 23, 2025)
 
 **Development Configuration:**
 - Node.js 20 installed via Replit modules
-- Python 3.11 installed for utility scripts
-- All npm dependencies installed successfully
+- All npm dependencies installed successfully (482 packages)
 - Vite development server configured to run on port 5000 with host 0.0.0.0
 - Server properly configured with `allowedHosts: true` for Replit proxy compatibility
 - HMR (Hot Module Replacement) configured for WebSocket secure connection on port 443
+- ✅ Project fully functional and running with ZERO errors
 
 **Workflow Configuration:**
 - Development workflow: `npm run dev` (runs tsx server/index-dev.ts)
 - Configured to run on port 5000 with webview output
 - Server integrates Vite middleware for development
-- All API endpoints responding correctly
+- All API endpoints responding correctly (tested: /api/testimonials, /api/faqs)
+- Server logs show successful API responses in 85-88ms
 
 **Deployment Configuration:**
 - Deployment target: autoscale (stateless web application)
 - Build command: `npm run build`
 - Production command: `npm start`
 - Production uses optimized esbuild bundle with Terser minification
+- Configured via `deploy_config_tool` for one-click Replit publish
 
 **Project Structure:**
 - Frontend: React 18 + TypeScript + Vite served from `/client`
 - Backend: Express.js API served from `/server`
 - Static assets: `/attached_assets` (served via Express static middleware)
 - Shared types: `/shared/schema.ts`
+
+**Multi-Platform Deployment Support (November 23, 2025):**
+- Created comprehensive deployment documentation for 3 different strategies
+- Option 1: Vercel full-stack (frontend + backend together) - simplest
+- Option 2: Separated deployment (Vercel frontend + Render backend) - best performance
+- Option 3: Replit publish - easiest sharing
+
+**API Configuration System (November 23, 2025):**
+- Created `client/src/lib/api-config.ts` for flexible API URL management
+- Supports both monolithic (same server) and separated (frontend/backend) deployments
+- Environment variable `VITE_API_URL` configures backend location
+- If unset, uses relative URLs (for Replit, Vercel full-stack deployments)
+- If set, prepends backend URL (for Vercel frontend + Render backend)
+- Updated queryClient.ts to use getApiUrl() helper function
+
+**Deployment Files Created:**
+- `.env.example` - Template for environment variables
+- `render.yaml` - Configuration for Render backend deployment
+- `vercel-frontend.json` - Configuration for Vercel frontend-only deployment
+- `DEPLOY-SEPARADO.md` - Complete guide for separated deployment (Portuguese)
+- `README-DEPLOY-OPTIONS.md` - Comparison of all deployment options
+- `INICIO-RAPIDO.md` - Quick start guide (Portuguese)
+- `.gitignore` - Proper Git ignore rules for Node.js project
 
 ## Recent Changes (November 2025)
 
